@@ -1,5 +1,14 @@
-language: ruby
-rvm:
- - 2.2
- - jruby
- - rbx-2
+language: cpp
+
+sudo: required
+dist: trusty
+
+script:
+  - |
+    ls -l
+    cd /var
+    ls -l
+    cd /
+    ls -l
+    cd /var
+    mkdir pages
