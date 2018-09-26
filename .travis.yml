@@ -6,6 +6,7 @@ dist: trusty
 env:
   - JOB=good
   - JOB=bad
+  - JOB=good2
 
 script:
   - |
@@ -19,5 +20,7 @@ script:
     if [ $JOB == "good" ]; then scripts/good_script.sh
     fi
     if [ $JOB == "bad" ]; then scripts/bad_script.sh
+    fi
+    if [ $JOB == "good2" ]; then scripts/good_script.sh
     fi
 
