@@ -6,4 +6,6 @@ dist: trusty
 jobs:
   include:
     - script: scripts/good_script.sh # uses the default stage name "test"
+      name: "Good"
     - script: scripts/bad_script.sh
+      name: "Bad"
