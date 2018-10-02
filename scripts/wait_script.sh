@@ -9,10 +9,10 @@ echo $HOME
 
 if [ ! -d $HOME/temp ] ; then
 mkdir $HOME/temp
-touch $HOME/temp/test.txt
 fi
 
 echo "======"
+touch $HOME/temp/test.txt
 cat $HOME/temp/test.txt
 echo "------"
 
