@@ -3,13 +3,15 @@ set -e
 
 echo "Hello, I am a wait script that exit 0"
 
-
+ls
 if [ ! -d temp ] ; then
 mkdir temp
 touch temp/test.txt
 fi
 
+echo "======"
 cat temp/test.txt
+echo "------"
 
 sleep 50
 echo 1

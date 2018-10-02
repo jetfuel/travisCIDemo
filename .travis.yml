@@ -6,10 +6,12 @@ dist: trusty
 cache:
   bundler: true
   directories:
-    - $HOME/temp/
+    - $HOME/temp
 
 install:
     - function timeout() { perl -e 'alarm shift; exec @ARGV' "$@"; }
   
 script:
-    - timeout 160 scripts/wait_script.sh
+    - |
+      timeout 160 scripts/wait_script.sh
+      RESULT=$?; if [ $RESULT -eq 0 ] || [ $RESULT -eq 142 ]; then true; else false; fi;
