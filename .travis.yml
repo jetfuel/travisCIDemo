@@ -3,9 +3,29 @@ language: cpp
 sudo: required
 dist: trusty
 
-jobs:
-  include:
-    - script: scripts/good_script.sh # uses the default stage name "test"
-      name: "Good"
-    - script: scripts/bad_script.sh
-      name: "Bad"
+cache:
+  bundler: true
+  directories:
+    - $HOME/temp/
+
+env:
+  global:
+    - TIMEOUT=160
+
+install:
+-|
+ function timeout() { perl -e 'alarm shift; exec @ARGV' "$@"; }
+  
+
+script:
+   - | timeout $TIMEOUT scripts/wait_script.sh
+        # Convert the timeout exit code to 0.
+        RESULT=$?; if [ $RESULT -eq 0 ] || [ $RESULT -eq 142 ]; then true; else false; fi;
+
+
+#jobs:
+#  include:
+#    - script: scripts/good_script.sh # uses the default stage name "test"
+#      name: "Good"
+#    - script: timeout $TIMEOUT scripts/bad_script.sh
+#      name: "Bad"
