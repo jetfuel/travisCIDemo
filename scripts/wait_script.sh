@@ -12,7 +12,7 @@ mkdir $HOME/temp
 fi
 
 echo "======"
-cat temp/test.txt
+cat $HOME/temp/test.txt
 echo "------"
 
 sleep 50
