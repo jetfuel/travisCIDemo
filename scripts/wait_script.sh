@@ -4,8 +4,11 @@ set -e
 echo "Hello, I am a wait script that exit 0"
 
 ls
-if [ ! -d temp ] ; then
-mkdir temp
+echo $HOME
+
+
+if [ ! -d $HOME/temp ] ; then
+mkdir $HOME/temp
 fi
 
 echo "======"
