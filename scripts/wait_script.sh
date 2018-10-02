@@ -19,20 +19,20 @@ sleep 50
 echo 1
 echo $RANDOM > $HOME/temp/test.txt
 
-cat temp/test.txt
+cat $HOME/temp/test.txt
 
 sleep 50
 echo 2
 echo "Hello 2" >> $HOME/temp/test.txt
 echo $RANDOM > $HOME/temp/test.txt
 
-cat temp/test.txt
+cat $HOME/temp/test.txt
 sleep 50
 echo 3
 echo "Hello 3" >> $HOME/temp/test.txt
 echo $RANDOM > $HOME/temp/test.txt
 
-cat temp/test.txt
+cat $HOME/temp/test.txt
 sleep 50
 echo 4
 echo "Hello 4" >> $HOME/temp/test.txt
