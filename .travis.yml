@@ -11,7 +11,16 @@ cache:
 install:
     - function timeout() { perl -e 'alarm shift; exec @ARGV' "$@"; }
   
-script:
-    - |
-      timeout 160 scripts/wait_script.sh
-      RESULT=$?; if [ $RESULT -eq 0 ] || [ $RESULT -eq 142 ]; then true; else false; fi;
+#script:
+#    - |
+#      timeout 160 scripts/wait_script.sh
+#      RESULT=$?; if [ $RESULT -eq 0 ] || [ $RESULT -eq 142 ]; then true; else false; fi;
+
+jobs:
+  include:
+    - script: scripts/good_script.sh # uses the default stage name "test"
+      name: "Good"
+    - script: scripts/bad_script.sh
+      name: "Bad"
+    - script: timeout 160 scripts/wait_script.sh
+      name: "Wait"
