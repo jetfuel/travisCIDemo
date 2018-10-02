@@ -16,6 +16,9 @@ echo "------"
 sleep 50
 echo 1
 echo "Hello 1" > temp/test.txt
+echo $RANDOM > temp/test.txt
+
+cat temp/test.txt
 
 sleep 50
 echo 2
