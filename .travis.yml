@@ -13,7 +13,7 @@ env:
     - TIMEOUT=160
 
 install:
--|
+   - |
  function timeout() { perl -e 'alarm shift; exec @ARGV' "$@"; }
   
 
