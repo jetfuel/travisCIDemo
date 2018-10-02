@@ -13,12 +13,12 @@ env:
     - TIMEOUT=160
 
 install:
-   - |
- function timeout() { perl -e 'alarm shift; exec @ARGV' "$@"; }
+    - |
+      function timeout() { perl -e 'alarm shift; exec @ARGV' "$@"; }
   
 
 script:
-   - | timeout $TIMEOUT scripts/wait_script.sh
+    - | timeout $TIMEOUT scripts/wait_script.sh
         # Convert the timeout exit code to 0.
         RESULT=$?; if [ $RESULT -eq 0 ] || [ $RESULT -eq 142 ]; then true; else false; fi;
 
